@@ -1,8 +1,14 @@
-export default function QuestionnairePage({ params }: { params: { token: string } }){
+type QuestionnairePageProps = {
+  params: Promise<{ token: string }>;
+};
+
+export default async function QuestionnairePage({ params }: QuestionnairePageProps){
+  const { token } = await params;
+
   return (
     <section className="space-y-4">
       <h2 className="text-xl font-semibold">Анкета пациента</h2>
-      <p className="text-sm opacity-80">Токен: {params.token}</p>
+      <p className="text-sm opacity-80">Токен: {token}</p>
       <form className="grid gap-2 max-w-md">
         <input className="border rounded px-3 py-2" placeholder="Фамилия"/>
         <input className="border rounded px-3 py-2" placeholder="Имя"/>
