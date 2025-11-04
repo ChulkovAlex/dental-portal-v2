@@ -1,16 +1,15 @@
+import type { ReactNode } from "react";
 import "./globals.css";
+import { ThemeToggleButton } from "./components/theme-toggle";
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ru" suppressHydrationWarning>
       <body className="min-h-screen text-slate-900 dark:text-[var(--text)] bg-[var(--surface)]">
         <div className="max-w-screen-2xl mx-auto p-4">
           <header className="flex items-center justify-between py-3">
             <h1 className="text-2xl font-semibold">Dental Portal</h1>
-            <button
-              onClick={() => document.documentElement.classList.toggle('dark')}
-              className="px-3 py-1 rounded-xl border"
-            >Тема</button>
+            <ThemeToggleButton />
           </header>
           <nav className="flex gap-3 text-sm">
             <a href="/" className="hover:underline">Главная</a>
